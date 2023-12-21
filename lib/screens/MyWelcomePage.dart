@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goodspace_assignment/constants.dart';
+import 'package:goodspace_assignment/screens/OTPScreen.dart';
 
 class MyWelcomePage extends StatefulWidget {
   const MyWelcomePage({super.key, required this.title});
@@ -32,6 +33,13 @@ class _MyWelcomePageState extends State<MyWelcomePage>
       }
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _tabController!.dispose();
+    super.dispose();
   }
 
   @override
@@ -226,7 +234,14 @@ class _MyWelcomePageState extends State<MyWelcomePage>
                       ],
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const OTPScreen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Continue',
                         style: TextStyle(
