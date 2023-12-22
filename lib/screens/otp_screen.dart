@@ -60,7 +60,7 @@ class _OTPScreenState extends State<OTPScreen> with TickerProviderStateMixin {
       body: SafeArea(
         child: ListView(children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.all(8.0),
             child: Container(
               color: Colors.white,
               child: Column(
@@ -113,7 +113,7 @@ class _OTPScreenState extends State<OTPScreen> with TickerProviderStateMixin {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
