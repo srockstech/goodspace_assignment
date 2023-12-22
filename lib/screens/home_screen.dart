@@ -15,6 +15,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const _widgetOptions = <Widget>[
     WorkTabScreen(),
+    Center(
+      child: Text(
+        'Hire tab in Progress...',
+      ),
+    ),
+    Center(
+      child: Text(
+        'Social tab in Progress...',
+      ),
+    ),
+    Center(
+      child: Text(
+        'Donors tab in Progress...',
+      ),
+    ),
+    Center(
+      child: Text(
+        'Premium tab in Progress...',
+      ),
+    ),
   ];
 
   void onItemTapped(int index) {
@@ -36,36 +56,36 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedIconTheme: const IconThemeData(color: kBlue),
           unselectedIconTheme: const IconThemeData(color: kGrey),
           showSelectedLabels: true,
-          selectedFontSize: 12,
-          unselectedFontSize: 12,
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
           backgroundColor: Colors.white,
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: onItemTapped,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.work_outline_rounded, size: 32),
-              activeIcon: Icon(Icons.work_outline_rounded, size: 32),
+              icon: Icon(Icons.work_outline_rounded, size: 25),
+              activeIcon: Icon(Icons.work_outline_rounded, size: 25),
               label: 'Work',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.handshake_outlined, size: 32),
-              activeIcon: Icon(Icons.handshake_outlined, size: 32),
+              icon: Icon(Icons.handshake_outlined, size: 25),
+              activeIcon: Icon(Icons.handshake_outlined, size: 25),
               label: 'Hire',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.people_alt_outlined, size: 32),
-              activeIcon: Icon(Icons.people_alt_outlined, size: 32),
+              icon: Icon(Icons.people_alt_outlined, size: 25),
+              activeIcon: Icon(Icons.people_alt_outlined, size: 25),
               label: 'Social',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bloodtype_outlined, color: kRed, size: 32),
-              activeIcon: Icon(Icons.bloodtype, color: kRed, size: 32),
+              icon: Icon(Icons.bloodtype_outlined, color: kRed, size: 25),
+              activeIcon: Icon(Icons.bloodtype, color: kRed, size: 25),
               label: 'Donors',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.diamond_sharp, size: 32),
-              activeIcon: Icon(Icons.diamond_sharp, size: 32),
+              icon: Icon(Icons.diamond_sharp, size: 25),
+              activeIcon: Icon(Icons.diamond_sharp, size: 25),
               label: 'Premium',
             ),
           ],

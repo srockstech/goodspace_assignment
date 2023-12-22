@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:goodspace_assignment/constants.dart';
+import 'package:goodspace_assignment/design/custom_box_decoration.dart';
+import 'package:goodspace_assignment/model/job_post.dart';
 
 // work tab screen for the 'Work' tab in the bottom navigation bar displaying all the available jobs.
 class WorkTabScreen extends StatefulWidget {
@@ -12,113 +15,371 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          // search bar
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color(0xFFF5F5F5),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.search, color: Colors.grey),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(10),
+          children: [
+            // top bar with profile image icon, create pitch button,share icon,messages icon, notification icon and menu icon
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        // Circular profile image with Circular.png
+                        Image.asset('lib/assets/images/profile.png',
+                            height: 30),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 6, horizontal: 14),
+                          decoration: CustomBoxDecoration.buttonBoxDecoration(),
+                          child: const Text(
+                            'Create Pitch',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                    //button with custom box decoration with text 'create pitch'
+
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.share_outlined,
+                          color: kDarkBlue,
+                          size: 24,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Icon(
+                          Icons.message_outlined,
+                          color: kDarkBlue,
+                          size: 24,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Stack(
+                          children: [
+                            const Icon(
+                              Icons.notifications_outlined,
+                              color: kDarkBlue,
+                              size: 24,
+                            ),
+                            // notification icon with red dot
+                            Positioned(
+                              right: 0,
+                              child: Container(
+                                height: 13,
+                                width: 13,
+                                decoration: const BoxDecoration(
+                                  color: Colors.red,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    '51',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Icon(
+                          Icons.menu,
+                          color: kDarkBlue,
+                          size: 24,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          // list of jobs
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color(0xFFF5F5F5),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.search, color: Colors.grey),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Flexible(
+                      child: Container(
+                        height: 50,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: CustomBoxDecoration.cardBoxDecoration(),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              decoration:
+                                  CustomBoxDecoration.buttonBoxDecoration(),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 4),
+                              child: const Text(
+                                '10.0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              'GScore',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Flexible(
+                      child: Container(
+                        height: 50,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: CustomBoxDecoration.cardBoxDecoration(),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'lib/assets/images/gcoin_logo.png',
+                              width: 20,
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              '66',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: kBlue),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              'Gcoin',
+                              style: TextStyle(
+                                height: 1.4,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Flexible(
+                      child: Container(
+                        height: 50,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: CustomBoxDecoration.cardBoxDecoration(),
+                        child: const Flexible(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                '1',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: kBlue),
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Feedback',
+                                style: TextStyle(
+                                  height: 1.4,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          // list of jobs
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color(0xFFF5F5F5),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.search, color: Colors.grey),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 65,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: CustomBoxDecoration.cardBoxDecoration(),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: Column(
+                          children: [
+                            Text(
+                              '0',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                  color: kBlue),
+                            ),
+                            Text(
+                              'Pending',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Flexible(
+                        child: SizedBox(
+                          width: 1,
+                          height: 50,
+                          child: VerticalDivider(
+                            color: Colors.grey,
+
+                            // thickness: 5,
+                            // width: 50,
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Column(
+                          children: [
+                            Text(
+                              '1',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                  color: kBlue),
+                            ),
+                            Text(
+                              'Shortlisted',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Flexible(
+                        child: SizedBox(
+                          width: 1,
+                          height: 50,
+                          child: VerticalDivider(
+                            color: Colors.grey,
+
+                            // thickness: 5,
+                            // width: 50,
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Column(
+                          children: [
+                            Text(
+                              '0',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                  color: kBlue),
+                            ),
+                            Text(
+                              'Applied',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
-          // list of jobs
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color(0xFFF5F5F5),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.search, color: Colors.grey),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 250,
+                  height: 50,
+                  decoration: CustomBoxDecoration.cardBoxDecoration(),
+                  child: TextField(
+                    keyboardType: TextInputType.text,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w600),
+                    decoration: InputDecoration(
+                      prefixIconConstraints: const BoxConstraints(
+                        // maxWidth: 40,
+                        minWidth: 40,
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: kBlue,
+                        size: 25,
+                      ),
+                      suffixIcon: const Icon(
+                        Icons.filter_alt_outlined,
+                        color: kDarkBlue,
+                        size: 27,
+                      ),
+                      hintText: 'Search opportunities',
+                      hintStyle: const TextStyle(
+                          color: Colors.black26,
+                          fontSize: 14,
+                          height: 3.5,
+                          fontWeight: FontWeight.w600),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ),
-                ],
+                ),
               ),
             ),
-          ),
-        ],
+            JobPost(),
+            JobPost(),
+            JobPost(),
+            JobPost(),
+            JobPost(),
+          ],
+        ),
       ),
     );
   }
