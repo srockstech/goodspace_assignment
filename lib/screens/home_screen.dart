@@ -5,6 +5,8 @@ import 'package:goodspace_assignment/screens/premium_tab_screen.dart';
 import 'package:goodspace_assignment/screens/social_tab_screen.dart';
 import 'package:goodspace_assignment/screens/work_tab_screen.dart';
 
+import 'donors_tab_screen.dart';
+
 // home screen having navigation bar at the bottom of the screen with 5 navigation items: Work, Hire, Social, Donors, Premium.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,11 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     WorkTabScreen(),
     HireTabScreen(),
     SocialTabScreen(),
-    Center(
-      child: Text(
-        'Donors tab in Progress...',
-      ),
-    ),
+    DonorsTabScreen(),
     PremiumTabScreen()
   ];
 
@@ -70,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Social',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bloodtype_outlined, color: kRed, size: 25),
-              activeIcon: Icon(Icons.bloodtype, color: kRed, size: 25),
+              icon: Icon(Icons.bloodtype_outlined, color: kLightRed, size: 25),
+              activeIcon: Icon(Icons.bloodtype, color: kLightRed, size: 25),
               label: 'Donors',
             ),
             BottomNavigationBarItem(

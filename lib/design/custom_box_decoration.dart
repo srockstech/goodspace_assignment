@@ -20,13 +20,13 @@ class CustomBoxDecoration {
     );
   }
 
-  static BoxDecoration buttonBoxDecoration({color, border}) {
+  static BoxDecoration buttonBoxDecoration({color, border, borderColor}) {
     return BoxDecoration(
       color: (color != null) ? color : kBlue,
       borderRadius: BorderRadius.circular(10),
       border: (border != null)
           ? Border.all(
-              color: kBlue,
+              color: (borderColor != null) ? borderColor : kBlue,
             )
           : null,
     );
