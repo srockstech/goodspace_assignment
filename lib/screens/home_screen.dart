@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goodspace_assignment/constants.dart';
+import 'package:goodspace_assignment/screens/hire_tab_screen.dart';
+import 'package:goodspace_assignment/screens/social_tab_screen.dart';
 import 'package:goodspace_assignment/screens/work_tab_screen.dart';
 
 // home screen having navigation bar at the bottom of the screen with 5 navigation items: Work, Hire, Social, Donors, Premium.
@@ -15,16 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const _widgetOptions = <Widget>[
     WorkTabScreen(),
-    Center(
-      child: Text(
-        'Hire tab in Progress...',
-      ),
-    ),
-    Center(
-      child: Text(
-        'Social tab in Progress...',
-      ),
-    ),
+    HireTabScreen(),
+    SocialTabScreen(),
     Center(
       child: Text(
         'Donors tab in Progress...',

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:goodspace_assignment/constants.dart';
 import 'package:goodspace_assignment/design/custom_box_decoration.dart';
-import 'package:goodspace_assignment/model/job_post.dart';
+import 'package:goodspace_assignment/model/social_profile_card.dart';
 
 // work tab screen for the 'Work' tab in the bottom navigation bar displaying all the available jobs.
-class WorkTabScreen extends StatefulWidget {
-  const WorkTabScreen({super.key});
+class SocialTabScreen extends StatefulWidget {
+  const SocialTabScreen({super.key});
 
   @override
-  State<WorkTabScreen> createState() => _WorkTabScreenState();
+  State<SocialTabScreen> createState() => _SocialTabScreenState();
 }
 
-class _WorkTabScreenState extends State<WorkTabScreen> {
+class _SocialTabScreenState extends State<SocialTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,6 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
         child: ListView(
           padding: const EdgeInsets.all(10),
           children: [
-            // top bar with profile image icon, create pitch button,share icon,messages icon, notification icon and menu icon
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -37,7 +36,7 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                             vertical: 6, horizontal: 14),
                         decoration: CustomBoxDecoration.buttonBoxDecoration(),
                         child: const Text(
-                          'Create Pitch',
+                          'Create Intro',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.white,
@@ -150,42 +149,6 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                   const SizedBox(
                     width: 8,
                   ),
-                  Container(
-                    height: 50,
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                    decoration: CustomBoxDecoration.cardBoxDecoration(),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'lib/assets/images/gcoin_logo.png',
-                          width: 18,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          '66',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: kBlue),
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          'Gcoin',
-                          style: TextStyle(
-                            height: 1.4,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   const SizedBox(
                     width: 8,
                   ),
@@ -241,35 +204,7 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                               color: kBlue),
                         ),
                         Text(
-                          'Pending',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 1,
-                      height: 50,
-                      child: VerticalDivider(
-                        color: Colors.grey,
-
-                        // thickness: 5,
-                        // width: 50,
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          '1',
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700,
-                              color: kBlue),
-                        ),
-                        Text(
-                          'Shortlisted',
+                          'Invitations',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -297,7 +232,35 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                               color: kBlue),
                         ),
                         Text(
-                          'Applied',
+                          'Connects',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 1,
+                      height: 50,
+                      child: VerticalDivider(
+                        color: Colors.grey,
+
+                        // thickness: 5,
+                        // width: 50,
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          '0',
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                              color: kBlue),
+                        ),
+                        Text(
+                          'Intros',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -334,7 +297,7 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                       color: kDarkBlue,
                       size: 27,
                     ),
-                    hintText: 'Search opportunities',
+                    hintText: 'Search',
                     hintStyle: const TextStyle(
                         color: Colors.black26,
                         fontSize: 14,
@@ -348,11 +311,11 @@ class _WorkTabScreenState extends State<WorkTabScreen> {
                 ),
               ),
             ),
-            const JobPost(),
-            const JobPost(),
-            const JobPost(),
-            const JobPost(),
-            const JobPost(),
+            const SocialProfileCard(),
+            const SocialProfileCard(),
+            const SocialProfileCard(),
+            const SocialProfileCard(),
+            const SocialProfileCard(),
           ],
         ),
       ),
