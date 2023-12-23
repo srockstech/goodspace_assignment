@@ -9,200 +9,122 @@ class SocialProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 150,
         decoration: CustomBoxDecoration.cardBoxDecoration(),
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.only(
-                  top: 12.0, left: 15.0, right: 15.0, bottom: 9.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Android Developer',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Chennai, Tamil Nadu, India',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: kGrey,
-                        ),
-                      ),
-                    ],
-                  ),
-                  // bookmark sign
-                  Icon(
-                    Icons.bookmark_border,
-                    color: kBlue,
-                    size: 25,
-                  ),
-                ],
-              ),
-            ),
-            // Below there are three containers with icons and text in a row
+            //image has rounded corners
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 35,
-                    width: 70,
-                    decoration: CustomBoxDecoration.tagsBoxDecoration(),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.location_city_sharp,
-                          color: kGrey,
-                          size: 16,
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          'Onsite',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: kGrey,
+              padding: const EdgeInsets.only(top: 9.0, right: 9.0, left: 9.0),
+              child: Container(
+                height: screenWidth * 0.8,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  image: DecorationImage(
+                    image: AssetImage('lib/assets/images/social_pic.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 10),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.black,
+                              Colors.black.withOpacity(0.0),
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            stops: const [0.0, 0.25],
                           ),
                         ),
-                      ],
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 230,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              child: Text(
+                                'Sarvagya Verma',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'A Flutter Developer with an experience of more than 2 years. Currently a final year student at Delhi Technological University.',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 35,
-                    width: 70,
-                    decoration: CustomBoxDecoration.tagsBoxDecoration(),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.work,
-                          color: kGrey,
-                          size: 16,
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          '1-3 yrs',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: kGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 35,
-                    width: 70,
-                    decoration: CustomBoxDecoration.tagsBoxDecoration(),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.currency_rupee_rounded,
-                          color: kBlue,
-                          size: 16,
-                        ),
-                        Text(
-                          '3L - 6L',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: kBlue,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  top: 9.0, left: 10.0, right: 15.0, bottom: 9.0),
+              padding: const EdgeInsets.only(
+                  top: 9.0, left: 10.0, right: 10.0, bottom: 9.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 15,
-                        backgroundColor: kMidBlue,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                          size: 20,
+                  Container(
+                    width: screenWidth * 0.405,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 30),
+                    decoration: CustomBoxDecoration.buttonBoxDecoration(
+                        color: Colors.white, border: true),
+                    child: const Center(
+                      child: Text(
+                        'View Profile',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: kBlue,
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Akshaya Elango',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: kGrey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'Bookwater Tech Pvt Ltd',
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: kGrey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
                   // bookmark sign
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 9, horizontal: 30),
-                    decoration: CustomBoxDecoration.buttonBoxDecoration(),
-                    child: const Text(
-                      'Apply',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                    width: screenWidth * 0.405,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 11, horizontal: 30),
+                    decoration:
+                        CustomBoxDecoration.buttonBoxDecoration(border: true),
+                    child: const Center(
+                      child: Text(
+                        'Connect',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
