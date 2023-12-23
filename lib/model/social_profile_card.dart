@@ -51,13 +51,13 @@ class SocialProfileCard extends StatelessWidget {
                             stops: const [0.0, 0.25],
                           ),
                         ),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              height: 230,
+                              height: screenWidth * 0.56,
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
                                 'Sarvagya Verma',
@@ -68,13 +68,12 @@ class SocialProfileCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Text(
+                            const Text(
                               'A Flutter Developer with an experience of more than 2 years. Currently a final year student at Delhi Technological University.',
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 fontSize: 14,
-                                fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
                             ),
