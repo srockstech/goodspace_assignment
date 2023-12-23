@@ -9,3 +9,4 @@ const kLightGrey = Color(0xFFF4F4F4);
 const kMidBlue = Color(0xFF548EF9);
 const kLightMidBlue = Color(0xFF60B2FF);
 const kDarkMidBlue = Color(0xFF3691D4);
+const kYellow = Color(0xFFFFE86C);

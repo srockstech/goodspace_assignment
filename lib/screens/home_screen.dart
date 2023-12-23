@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goodspace_assignment/constants.dart';
 import 'package:goodspace_assignment/screens/hire_tab_screen.dart';
+import 'package:goodspace_assignment/screens/premium_tab_screen.dart';
 import 'package:goodspace_assignment/screens/social_tab_screen.dart';
 import 'package:goodspace_assignment/screens/work_tab_screen.dart';
 
@@ -24,11 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Donors tab in Progress...',
       ),
     ),
-    Center(
-      child: Text(
-        'Premium tab in Progress...',
-      ),
-    ),
+    PremiumTabScreen()
   ];
 
   void onItemTapped(int index) {
